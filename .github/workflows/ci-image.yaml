@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  job1-test&build:
+  job1-test-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
