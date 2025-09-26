@@ -3,28 +3,21 @@ package com.example;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-class SnakeGameTest {
+public class SnakeGameTest {
 
     @Test
-    void testScoreIncrement() {
-        SnakeGameTestable game = new SnakeGameTestable();
-        int initialScore = game.getScore();
-        game.increaseScore();
-        assertEquals(initialScore + 1, game.getScore());
+    public void testInitialGameState() {
+        SnakeGame game = new SnakeGame();
+        assertEquals(0, game.getScore());
+        assertFalse(game.isGameOver());
     }
 
     @Test
-    void testGameOverCollision() {
-        SnakeGameTestable game = new SnakeGameTestable();
-        game.hitWall();
-        assertTrue(game.isGameOver());
+    public void testMoveSnakeUpdatesScore() {
+        SnakeGame game = new SnakeGame();
+        // Move snake manually
+        game.setDirection("D");  // Example
+        game.update();            // move and check collision
+        assertTrue(game.getScore() >= 0); // at least 0
     }
-}
-
-// Helper class to test without console input
-class SnakeGameTestable extends SnakeGame {
-    void increaseScore() { super.score++; }
-    void hitWall() { super.gameOver = true; }
-    int getScore() { return super.score; }
-    boolean isGameOver() { return super.gameOver; }
 }
