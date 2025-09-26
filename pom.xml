@@ -1,37 +1,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-         http://maven.apache.org/xsd/maven-4.0.0.xsd">
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>flappy-bird</artifactId>
+    <artifactId>snake-game</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <javafx.version>23.3.1</javafx.version>
         <junit.version>5.10.2</junit.version>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>openjfx</id>
-            <url>https://repo.maven.apache.org/maven2/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
-        <!-- JavaFX Controls for all platforms -->
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>${javafx.version}</version>
-        </dependency>
-
-        <!-- JUnit 5 -->
+        <!-- JUnit 5 for tests -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
@@ -53,7 +38,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Surefire plugin for JUnit -->
+            <!-- Surefire plugin for running tests -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -68,7 +53,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.example.FlappyBird</mainClass>
+                            <mainClass>com.example.SnakeGame</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
