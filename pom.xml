@@ -16,24 +16,19 @@
         <junit.version>5.10.2</junit.version>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <!-- JavaFX BOM for proper platform dependencies -->
-            <dependency>
-                <groupId>org.openjfx</groupId>
-                <artifactId>javafx-bom</artifactId>
-                <version>${javafx.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <repositories>
+        <repository>
+            <id>openjfx</id>
+            <url>https://repo.maven.apache.org/maven2/</url>
+        </repository>
+    </repositories>
 
     <dependencies>
-        <!-- JavaFX Controls -->
+        <!-- JavaFX Controls for all platforms -->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
         </dependency>
 
         <!-- JUnit 5 -->
