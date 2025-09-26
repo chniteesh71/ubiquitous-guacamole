@@ -1,12 +1,12 @@
 # ---- Build stage ----
-FROM eclipse-temurin:24-jdk AS builder
+FROM maven:3.9.11-eclipse-temurin-24 AS builder
 WORKDIR /usr/src/app
 
 # Copy Maven project files
 COPY pom.xml .
 COPY snake-game/ .
 
-# Download dependencies first (caching)
+# Download dependencies (caching)
 RUN mvn dependency:go-offline -B
 
 # Build the project
@@ -21,4 +21,3 @@ COPY --from=builder /usr/src/app/target/snake-game-1.0-SNAPSHOT.jar ./snake-game
 
 # Run the JAR
 ENTRYPOINT ["java", "-jar", "snake-game.jar"]
-
